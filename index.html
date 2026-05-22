@@ -3,517 +3,174 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fajar — Kurikulum CapCut 39 Hari</title>
+<title>Tugas Fajar — 23 Mei 2026 — Stress Test Edit</title>
 <style>
-  @page { size: A4; margin: 12mm; }
+  @page { size: A4 auto; margin: 12mm; }
   :root {
-    --bg:#faf9f5; --card:#ffffff; --ink:#1a1a1a; --mute:#6b6b6b; --line:#e8e6df;
-    --p1:#7c5cff; --p2:#16a34a; --p3:#f59e0b; --p4:#ef4444; --p5:#0891b2; --p6:#a855f7;
+    --bg:#faf9f5; --card:#ffffff; --ink:#1a1a1a; --mute:#5d5d5d; --line:#e8e6df;
+    --accent:#ef4444; --ok:#16a34a; --warn:#f59e0b; --blue:#0891b2;
     --gold:#facc15; --gold-bg:#fffbe6;
-    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 12px rgba(0,0,0,.04);
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 14px rgba(0,0,0,.05);
   }
-  * { box-sizing: border-box; }
-  html,body { background:var(--bg); color:var(--ink); margin:0; font:15px/1.55 -apple-system,Segoe UI,Roboto,Inter,sans-serif; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 24px 60px; }
+  * { box-sizing:border-box; }
+  html,body { background:var(--bg); color:var(--ink); margin:0; font:15px/1.6 -apple-system,Segoe UI,Roboto,Inter,sans-serif; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 28px 24px 60px; }
 
-  /* HERO */
-  .hero { background: linear-gradient(135deg,#1a1a1a,#2a2a2a); color:#fff; border-radius: 18px; padding: 28px 32px; margin-bottom: 28px; box-shadow: var(--shadow); }
-  .hero h1 { margin: 0 0 6px; font-size: 32px; letter-spacing:-.02em; }
-  .hero p.lede { margin: 0 0 18px; opacity:.85; font-size: 16px; }
-  .hero .stats { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .hero .stat { background: rgba(255,255,255,.08); border-radius: 10px; padding: 10px 14px; }
-  .hero .stat b { display:block; font-size: 11px; opacity:.7; text-transform:uppercase; letter-spacing:.05em; margin-bottom: 2px; }
-  .hero .stat span { font-size: 16px; font-weight: 600; }
+  .hero { background: linear-gradient(135deg,#1a1a1a,#2a2a2a); color:#fff; border-radius:18px; padding:26px 30px; box-shadow:var(--shadow); }
+  .hero .tag { display:inline-block; background:var(--accent); color:#fff; font-size:11px; font-weight:700; letter-spacing:.08em; padding:4px 10px; border-radius:99px; text-transform:uppercase; }
+  .hero h1 { margin: 10px 0 6px; font-size: 28px; letter-spacing:-.02em; }
+  .hero p.lede { margin: 0; opacity:.85; font-size: 15px; }
+  .hero .meta { display:grid; grid-template-columns: repeat(3,1fr); gap:10px; margin-top:18px; }
+  .hero .m { background: rgba(255,255,255,.08); border-radius:10px; padding:10px 14px; }
+  .hero .m b { display:block; font-size:11px; opacity:.7; text-transform:uppercase; letter-spacing:.05em; margin-bottom:2px; }
+  .hero .m span { font-size:15px; font-weight:600; }
 
-  /* SECTION HEADER */
-  h2.section { font-size: 22px; margin: 32px 0 14px; letter-spacing:-.01em; }
-  .lead { color:var(--mute); margin: -6px 0 16px; }
+  h2 { font-size: 19px; margin: 30px 0 12px; letter-spacing:-.01em; }
+  .lead { color:var(--mute); margin:-6px 0 14px; font-size:14px; }
 
-  /* RULES */
-  .rules { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .rule { background:var(--card); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow); }
-  .rule b { display:block; font-size:14px; margin-bottom: 4px; }
-  .rule p { margin:0; font-size:13.5px; color:var(--mute); }
+  .card { background:var(--card); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow); margin-bottom:14px; }
+  .card h3 { margin:0 0 8px; font-size:16px; }
+  .card p { margin:0 0 8px; font-size:14.5px; }
+  .card ul { margin:6px 0 0; padding-left:20px; }
+  .card li { margin:4px 0; font-size:14.5px; }
 
-  /* PHASE */
-  .phase { margin-top: 36px; }
-  .phase-head { display:flex; align-items:center; gap:14px; padding: 12px 16px; border-radius: 12px; color:#fff; box-shadow: var(--shadow); }
-  .phase-head .num { font-size: 14px; font-weight: 700; opacity: .85; }
-  .phase-head h2 { margin:0; font-size: 19px; font-weight: 700; flex:1; }
-  .phase-head .range { font-size: 13px; opacity: .9; }
-  .phase-why { margin: 10px 4px 16px; color: var(--mute); font-size: 14px; }
-  .p1 .phase-head { background: var(--p1); }
-  .p2 .phase-head { background: var(--p2); }
-  .p3 .phase-head { background: var(--p3); }
-  .p4 .phase-head { background: var(--p4); }
-  .p5 .phase-head { background: var(--p5); }
-  .p6 .phase-head { background: var(--p6); }
+  .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+  @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
 
-  /* DAY GRID */
-  .days { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
-  .day {
-    background: var(--card);
-    border-radius: 12px;
-    padding: 14px 16px 16px;
-    box-shadow: var(--shadow);
-    border-left: 5px solid var(--line);
-    display: flex; flex-direction: column;
-    position: relative;
-  }
-  .p1 .day { border-left-color: var(--p1); }
-  .p2 .day { border-left-color: var(--p2); }
-  .p3 .day { border-left-color: var(--p3); }
-  .p4 .day { border-left-color: var(--p4); }
-  .p5 .day { border-left-color: var(--p5); }
-  .p6 .day { border-left-color: var(--p6); }
-  .day .day-head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 8px; }
-  .day .badge { font-size: 11px; font-weight: 700; color: #fff; padding: 2px 8px; border-radius: 999px; background: #999; text-transform: uppercase; letter-spacing: .04em; }
-  .day .num { font-size: 22px; font-weight: 800; letter-spacing:-.02em; }
-  .day h3 { font-size: 15px; margin: 0 0 10px; line-height: 1.35; font-weight: 700; }
-  .day .label { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--mute); font-weight: 700; margin: 8px 0 2px; }
-  .day p, .day ul { margin: 0; font-size: 13.5px; color: #2a2a2a; }
-  .day ul { padding-left: 18px; }
-  .day ul li { margin: 2px 0; }
-  .day .deliver { background: #f4f3ee; padding: 8px 10px; border-radius: 8px; font-size: 13px; margin-top: 10px; }
-  .day .deliver b { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--mute); display:block; margin-bottom: 2px; }
+  .req { border-left: 4px solid var(--accent); }
+  .req h3 .num { display:inline-block; background:var(--accent); color:#fff; width:24px; height:24px; border-radius:50%; text-align:center; line-height:24px; font-size:13px; margin-right:8px; vertical-align:middle; font-weight:700; }
+  .spec { font-size:13px; color:var(--mute); margin-top:4px; }
 
-  /* MILESTONE */
-  .day.milestone { background: var(--gold-bg); border-left-width: 6px; }
-  .day.milestone .badge { background: var(--gold); color: #1a1a1a; }
-  .day.milestone h3::before { content: "MILESTONE — "; font-weight: 800; color: #a16207; font-size: 11px; letter-spacing: .08em; }
-  .day.milestone h3 { color: #6b4d00; }
+  .timeline { background:#0f172a; color:#e2e8f0; border-radius:12px; padding:18px 20px; box-shadow:var(--shadow); }
+  .timeline h3 { color:#fff; margin:0 0 10px; font-size:15px; }
+  .timeline .row { display:flex; gap:10px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08); }
+  .timeline .row:last-child { border:0; }
+  .timeline .t { width:60px; color:var(--gold); font-weight:600; font-size:13px; }
+  .timeline .d { flex:1; font-size:14px; }
 
-  /* OFF DAY */
-  .day.off { background: #f0efe9; border-left-color: #c4c2b8; }
-  .day.off .num { color: #8e8b80; }
-  .day.off h3 { color: #6b6b6b; }
-  .day.off p { color: #8e8b80; font-style: italic; }
+  .rubric { width:100%; border-collapse:collapse; }
+  .rubric th, .rubric td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); font-size:14px; }
+  .rubric th { background:#f3f1ea; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--mute); }
+  .rubric td.score { font-weight:700; color:var(--blue); width:80px; }
 
-  /* END CONTRACT */
-  .contract { margin-top: 36px; background: var(--gold-bg); border: 2px solid var(--gold); border-radius: 14px; padding: 18px 22px; }
-  .contract h2 { margin: 0 0 4px; color: #6b4d00; font-size: 19px; }
-  .contract p.intro { margin: 0 0 12px; color: #6b4d00; font-size: 14px; }
-  .contract ul { margin: 0; padding-left: 22px; }
-  .contract li { margin: 6px 0; font-size: 14px; }
+  .warn { background:var(--gold-bg); border:1px solid var(--gold); border-radius:12px; padding:14px 18px; margin-bottom:14px; }
+  .warn b { display:block; margin-bottom:4px; }
 
-  /* FOOTER */
-  .foot { margin-top: 30px; color: var(--mute); font-size: 12.5px; text-align: center; }
-
-  @media (max-width: 640px) {
-    .hero .stats { grid-template-columns: repeat(2, 1fr); }
-    .rules { grid-template-columns: 1fr; }
-    .days { grid-template-columns: 1fr; }
-  }
-  @media print {
-    .hero { background: #1a1a1a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .phase-head, .day, .rule, .contract, .day.milestone, .day.off { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .days { grid-template-columns: repeat(2, 1fr); }
-    .phase { page-break-inside: avoid; }
-  }
+  .footer { text-align:center; color:var(--mute); font-size:12.5px; margin-top:28px; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<!-- PHASE 1 -->
-<section class="phase p1">
-  <div class="phase-head"><span class="num">PHASE 1</span><h2>Dasar-Dasar — Dari nol sampai bisa publish 1 short</h2><span class="range">Hari 1–7</span></div>
-  <p class="phase-why">Target: di Hari 7 kamu bisa bikin 1 short 60 detik sendirian dari mentah sampai ekspor — cut, musik, caption, transisi, SFX. Komplit.</p>
-  <div class="days">
-
-    <div class="day"><div class="day-head"><span class="num">1</span><span class="badge">Phase 1</span></div>
-      <h3>Tour CapCut & timeline dasar</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Install CapCut desktop + HP</li><li>Buka project, import footage</li><li>Kenal timeline, layer, preview</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Susun 30 detik kasar dari footage LalaFun yang udah disiapin. Simpan project, kasih nama yang bener.</p>
-      <div class="deliver"><b>Hasil</b>1 rough cut 30 detik, belum ada musik</div>
+  <div class="hero">
+    <span class="tag">Stress Test — 1 Hari</span>
+    <h1>Tugas Fajar — Sabtu, 23 Mei 2026</h1>
+    <p class="lede">Hari ini saya mau lihat batas kemampuan kamu di CapCut. Bukan latihan dasar lagi. Buktiin kamu bisa rangkai short video yang ada hook, B-roll, subtitle, sound effect, dan lower-third sekaligus.</p>
+    <div class="meta">
+      <div class="m"><b>Deliverable</b><span>1 video pendek 45–60 detik</span></div>
+      <div class="m"><b>Format</b><span>9:16 vertical, MP4 1080p</span></div>
+      <div class="m"><b>Deadline</b><span>Hari ini, sebelum jam 21:00</span></div>
     </div>
-
-    <div class="day"><div class="day-head"><span class="num">2</span><span class="badge">Phase 1</span></div>
-      <h3>Cutting dasar — split, trim, J/L cut</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Split, ripple delete, trim</li><li>J-cut & L-cut (audio dulu / gambar dulu)</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Edit ulang footage kemarin jadi 30 detik rapih, cuma pakai cut. Nonton 5 video viral, tandai setiap titik cutnya.</p>
-      <div class="deliver"><b>Hasil</b>Cut-only 30 detik</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">3</span><span class="badge">Phase 1</span></div>
-      <h3>Musik & sync beat</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Pilih track dari library CapCut</li><li>Snap cut ke beat</li><li>Fade in / fade out</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Edit ulang video Hari 2 ngikutin beat lagu. Cutnya harus jatuh tepat di beat.</p>
-      <div class="deliver"><b>Hasil</b>Video 30 detik sinkron sama beat</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">4</span><span class="badge">Phase 1</span></div>
-      <h3>Teks & caption</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Auto-caption + perbaikan manual</li><li>Hook text (text di 2 detik pertama)</li><li>Font, ukuran, posisi</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Auto-caption video Hari 3, fix semua kesalahan tulisan. Tambah hook text di 2 detik pertama. Coba 3 font, 3 posisi.</p>
-      <div class="deliver"><b>Hasil</b>Video 30 detik full caption + hook</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">5</span><span class="badge">Phase 1</span></div>
-      <h3>SFX viral & meme sound — gaya YouTuber</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>SFX library CapCut</li><li>Sound meme: vine boom, bruh, ding, swoosh, record scratch, dll</li><li>Kapan pakai, kapan jangan</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Nonton 10 short viral, catat setiap SFX yang dipakai. Bikin shortcut SFX favorit di CapCut. Tambah 4–6 SFX ke video Hari 4 di titik penting: cut, reveal, punchline. <b>Jangan kebanyakan</b> — yang penting taste, bukan rame.</p>
-      <div class="deliver"><b>Hasil</b>Video full SFX + daftar SFX favorit</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">6</span><span class="badge">Phase 1</span></div>
-      <h3>Transisi, efek dasar, ekspor</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Transisi (sparingly!), zoom, shake, flash</li><li>Settings ekspor: 1080p, fps, bitrate</li><li>Naming file</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Tambah 2–3 transisi ke video Hari 5, cuma yang nyambung. Hapus yang norak. Ekspor 3 versi: 1080p 30fps, 1080p 60fps, 720p preview. Bikin sistem naming file.</p>
-      <div class="deliver"><b>Hasil</b>Video bertransisi + 3 ekspor + dokumen naming</div>
-    </div>
-
-    <div class="day milestone"><div class="day-head"><span class="num">7</span><span class="badge">Milestone 1</span></div>
-      <h3>Bikin 1 short utuh sendirian</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Gabungin semua skill Phase 1</li><li>Manage waktu: storyboard → edit → polish</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Kamu dapet footage LalaFun mentah. Storyboard 1 jam, edit 4 jam, polish + ekspor 1 jam. <b>Tanpa bantuan.</b> Wajib ada: cut, musik, caption, transisi, minimal 3 SFX.</p>
-      <div class="deliver"><b>Hasil</b>1 short 60 detik utuh — kualitas belum jadi standar, yang penting selesai</div>
-    </div>
-
-    <div class="day off"><div class="day-head"><span class="num">OFF</span><span class="badge">Libur</span></div>
-      <h3>Hari libur 1</h3>
-      <p>Istirahat penuh. Jangan ngedit.</p>
-    </div>
-
   </div>
-</section>
 
-<!-- PHASE 2 -->
-<section class="phase p2">
-  <div class="phase-head"><span class="num">PHASE 2</span><h2>Efek & Polish — Bikin video kelihatan profesional</h2><span class="range">Hari 8–14</span></div>
-  <p class="phase-why">Target: di Hari 14 kamu bisa color grade, kasih motion, sound design, dan gabungin efek tanpa kelihatan amatir.</p>
-  <div class="days">
-
-    <div class="day"><div class="day-head"><span class="num">8</span><span class="badge">Phase 2</span></div>
-      <h3>Color dasar — filter, LUT, kontras</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Brightness, contrast, saturation</li><li>Filter built-in CapCut</li><li>LUT preset</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Ambil video Hari 7. Bikin 3 versi color: warm, cool, neutral. Tentuin mana yang paling bikin makanan kelihatan paling enak.</p>
-      <div class="deliver"><b>Hasil</b>3 versi warna + pilihan dengan alasan</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">9</span><span class="badge">Phase 2</span></div>
-      <h3>Speed ramp — bikin video terasa hype</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Speed curve</li><li>Freeze frame</li><li>Slow-motion</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Edit short hype dari footage aksi (goreng, plating, action). Pakai 3 speed ramp, 1 freeze frame.</p>
-      <div class="deliver"><b>Hasil</b>1 short 30 detik dengan speed ramp</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">10</span><span class="badge">Phase 2</span></div>
-      <h3>Keyframe — animasi posisi, scale, opacity</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Konsep keyframe</li><li>Animasi posisi, scale, opacity</li><li>Ease in / ease out</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Animasi text intro (slide + fade). Tambah zoom pelan ke shot produk static. <b>Jangan pakai preset</b> — kamu bikin sendiri keyframenya.</p>
-      <div class="deliver"><b>Hasil</b>1 short dengan text dan zoom animasi</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">11</span><span class="badge">Phase 2</span></div>
-      <h3>Mask & blending mode</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Shape mask (oval, rectangle, linear)</li><li>Blending mode: screen, multiply, overlay</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Bikin reveal effect pakai shape mask. Tambah light leak overlay pakai screen blend mode.</p>
-      <div class="deliver"><b>Hasil</b>1 short dengan mask + overlay</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">12</span><span class="badge">Phase 2</span></div>
-      <h3>Sound design lanjut — mixing 3 track</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Ducking (musik turun pas voiceover)</li><li>Layering: ambient + SFX + dialog</li><li>Mixing & balance level</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Lanjut dari taste SFX di Hari 5. Sekarang: duck musik di bawah voiceover, layer 3 track audio, balance biar nggak saling tabrak. Bandingin gimana YouTuber besar mixing vs editan amatir.</p>
-      <div class="deliver"><b>Hasil</b>1 short dengan 3 track audio mixed</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">13</span><span class="badge">Phase 2</span></div>
-      <h3>Auto-tools CapCut</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Caption fix otomatis</li><li>Auto-reframe</li><li>Smart cut</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Speed run: edit 60 detik pakai auto-tools dulu buat first pass, baru polish manual 90 menit. Catat waktunya — berapa cepet vs manual full.</p>
-      <div class="deliver"><b>Hasil</b>1 short fast-edit + catatan waktu</div>
-    </div>
-
-    <div class="day milestone"><div class="day-head"><span class="num">14</span><span class="badge">Milestone 2</span></div>
-      <h3>Polish lengkap — semua skill Phase 2 muncul</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Brief: push menu pedes LalaFun. 60 detik. Wajib pakai color grade, speed ramp, keyframe, mask atau overlay, sound design, auto-tools — semua skill Phase 2 muncul di 1 video.</p>
-      <div class="deliver"><b>Hasil</b>1 short portfolio-grade pertama</div>
-    </div>
-
-    <div class="day off"><div class="day-head"><span class="num">OFF</span><span class="badge">Libur</span></div>
-      <h3>Hari libur 2</h3>
-      <p>Istirahat penuh.</p>
-    </div>
-
+  <div class="warn">
+    <b>Kenapa tugas ini ada?</b>
+    Kemarin sudah saya bilang: kurikulum 39 hari itu cuma peta — bukan batas. Jangan stuck di pelajaran 1. Hari ini saya tes kamu di tingkat menengah langsung. Kalau lolos, kita lompat. Kalau gagal di bagian tertentu, baru kita perbaiki bagian itu saja.
   </div>
-</section>
 
-<!-- PHASE 3 -->
-<section class="phase p3">
-  <div class="phase-head"><span class="num">PHASE 3</span><h2>Hook & Retention — Bikin orang nggak scroll</h2><span class="range">Hari 15–21</span></div>
-  <p class="phase-why">Target: di Hari 21 kamu edit buat retention, bukan cuma estetika. Hook di 3 detik pertama, pacing rapat, ada story arc. Ini phase paling penting — kalau viewer pergi di detik 2, semua skill lain percuma.</p>
-  <div class="days">
-
-    <div class="day"><div class="day-head"><span class="num">15</span><span class="badge">Phase 3</span></div>
-      <h3>Teori hook + studi 20 video viral</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>4 jenis hook: pertanyaan, aksi, text, pattern interrupt</li><li>Pola struktur: hook → build → payoff</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Bedah 20 short viral. Tiap video, label hooknya jenis apa. Lalu tulis 10 ide hook sendiri.</p>
-      <div class="deliver"><b>Hasil</b>Notebook hook (1 halaman)</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">16</span><span class="badge">Phase 3</span></div>
-      <h3>3 jenis hook editing</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Dari footage yang sama, bikin 3 versi 15 detik dengan hook beda: text-hook, aksi-hook, pertanyaan-hook. <b>Jangan reuse cut</b> — tiap versi harus beda.</p>
-      <div class="deliver"><b>Hasil</b>3 tes hook</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">17</span><span class="badge">Phase 3</span></div>
-      <h3>Pacing & retention — cut tiap 1.5 detik</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Rule 3 detik pertama</li><li>Frekuensi cut</li><li>Pattern interrupt (ganti angle, zoom, sound)</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Edit ulang 60 detik dengan cut rata-rata 1.5 detik sekali. Buat peta cut di dokumen — tiap cut ditulis kenapa di situ.</p>
-      <div class="deliver"><b>Hasil</b>1 short cut rapat + peta cut</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">18</span><span class="badge">Phase 3</span></div>
-      <h3>Talking-head editing</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Jump cut (potong jeda diam)</li><li>Breath cut (potong nafas)</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Edit 60 detik clip orang ngomong. Hapus semua dead air. Tambah 4 jump cut yang natural — bukan yang bikin awkward.</p>
-      <div class="deliver"><b>Hasil</b>1 short talking-head</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">19</span><span class="badge">Phase 3</span></div>
-      <h3>B-roll integration — audio jalan dulu, gambar nyusul</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Match cut</li><li>J-cut audio (audio masuk dulu, gambar nyusul)</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Ambil talking-head Hari 18. Layer 4+ B-roll insert yang nyambung sama narasi. Audio orangnya tetap jalan, gambar di-cut ke B-roll yang relevan.</p>
-      <div class="deliver"><b>Hasil</b>1 short kaya B-roll</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">20</span><span class="badge">Phase 3</span></div>
-      <h3>Multi-clip story — awal, tengah, akhir, callback</h3>
-      <div class="label">Yang kamu pelajari</div>
-      <ul><li>Struktur 3-babak mini</li><li>Callback ending (balik ke shot awal)</li></ul>
-      <div class="label">Tugas hari ini</div>
-      <p>Edit 3 sumber footage jadi 60 detik cerita. Ending harus callback ke shot pembuka — bikin viewer ngerasa "oh, ini cerita utuh".</p>
-      <div class="deliver"><b>Hasil</b>1 short story-arc</div>
-    </div>
-
-    <div class="day milestone"><div class="day-head"><span class="num">21</span><span class="badge">Milestone 3</span></div>
-      <h3>Hook + retention + A/B test</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Brief: Kosolo dish hero. Bikin 2 versi penuh, dengan hook beda. Pilih pemenangnya dengan alasan jelas (kenapa versi A lebih kuat).</p>
-      <div class="deliver"><b>Hasil</b>Short portfolio-grade ke-2 + catatan keputusan A/B</div>
-    </div>
-
-    <div class="day off"><div class="day-head"><span class="num">OFF</span><span class="badge">Libur</span></div>
-      <h3>Hari libur 3</h3>
-      <p>Istirahat penuh.</p>
-    </div>
-
+  <h2>Brief Video</h2>
+  <div class="card">
+    <h3>Topik: "Sehari di Dapur LalaFun" (atau footage lain yang sudah kamu punya)</h3>
+    <p>Pilih satu brand yang footage-nya paling banyak kamu pegang sekarang: LalaFun / Kosolo / Floural. Bikin short video yang nunjukin proses / behind the scenes / produk — bebas, asal punya cerita pendek (mulai → tengah → akhir).</p>
+    <p class="spec"><b>Catatan:</b> kalau footage belum cukup, pakai stock B-roll dari CapCut atau footage lama. Tujuan hari ini bukan footage baru — tujuannya editing skill.</p>
   </div>
-</section>
 
-<!-- PHASE 4 -->
-<section class="phase p4">
-  <div class="phase-head"><span class="num">PHASE 4</span><h2>Compositing Lanjut & AI Tools</h2><span class="range">Hari 22–28</span></div>
-  <p class="phase-why">Target: di Hari 28 kamu bisa pakai semua fitur lanjutan CapCut yang dipakai buat short-form — dan tau mana yang sebenernya nggak perlu.</p>
-  <div class="days">
+  <h2>Kebutuhan Wajib (semua harus ada)</h2>
 
-    <div class="day"><div class="day-head"><span class="num">22</span><span class="badge">Phase 4</span></div>
-      <h3>Green screen / chroma key</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Composite subjek ke background baru. Bersihin tepinya (jangan ada green spill). Tambah bayangan soft biar realistis.</p>
-      <div class="deliver"><b>Hasil</b>1 short green screen</div>
+  <div class="grid2">
+    <div class="card req">
+      <h3><span class="num">1</span>Hook 3 Detik Pertama</h3>
+      <p>3 detik pertama harus bikin orang berhenti scroll. Boleh pakai: pertanyaan teks besar, cut cepat ke momen visual paling menarik, atau zoom-in dramatis.</p>
+      <div class="spec">Minimal: 1 cut dalam 3 detik pertama, dan ada teks/visual yang jelas mengarah ke isi video.</div>
     </div>
 
-    <div class="day"><div class="day-head"><span class="num">23</span><span class="badge">Phase 4</span></div>
-      <h3>Picture-in-picture & split screen</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Edit side-by-side atau PIP untuk gaya tutorial. Pastikan kedua sisi tetap kebaca, jangan ada yang ke-crop.</p>
-      <div class="deliver"><b>Hasil</b>1 short split-screen</div>
+    <div class="card req">
+      <h3><span class="num">2</span>Auto Subtitle (Caption)</h3>
+      <p>Pakai fitur <b>Auto Captions</b> di CapCut. Setelah generate, <b>cek manual</b> setiap kata — perbaiki typo, tambah tanda baca, dan styling biar konsisten.</p>
+      <div class="spec">Font readable, ukuran cukup besar buat HP, ada outline atau background biar kebaca di semua frame. Posisi tengah-bawah, jangan menutupi wajah orang.</div>
     </div>
 
-    <div class="day"><div class="day-head"><span class="num">24</span><span class="badge">Phase 4</span></div>
-      <h3>Motion tracking</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Track subjek bergerak. Pasang text atau emoji yang ngikutin gerakannya — kayak panah ke arah produk.</p>
-      <div class="deliver"><b>Hasil</b>1 short tracked</div>
+    <div class="card req">
+      <h3><span class="num">3</span>Sound Effect (min. 4)</h3>
+      <p>Tempel minimal 4 SFX di momen yang tepat. Contoh: whoosh untuk transisi, pop untuk teks muncul, ding untuk highlight, swoosh untuk zoom.</p>
+      <div class="spec">Volume SFX harus seimbang dengan musik latar — tidak boleh overpower. Setiap SFX harus punya alasan, bukan ditempel acak.</div>
     </div>
 
-    <div class="day"><div class="day-head"><span class="num">25</span><span class="badge">Phase 4</span></div>
-      <h3>Object removal & cleanup</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Ambil clip yang ada cacat (logo nyasar, orang lewat, pinggir piring kotor). Bersihin. Catat: mana yang bisa dibetulin di edit, mana yang lebih baik re-shoot aja.</p>
-      <div class="deliver"><b>Hasil</b>1 short bersih + catatan limit tool</div>
+    <div class="card req">
+      <h3><span class="num">4</span>B-Roll Layering (min. 4 klip)</h3>
+      <p>Susun minimal 4 potongan B-roll berbeda dalam 1 video. Tiap klip maksimal 2–3 detik. Atur biar visualnya bervariasi: close-up, wide shot, detail shot, motion shot.</p>
+      <div class="spec">Gunakan keyframe untuk zoom-in pelan (Ken Burns effect) di klip statis. Hindari semua klip ukuran sama dan diam.</div>
     </div>
 
-    <div class="day"><div class="day-head"><span class="num">26</span><span class="badge">Phase 4</span></div>
-      <h3>AI tools di CapCut</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Pakai 3 dari: AI captions translate, AI background, AI voice, AI script. Putuskan mana yang beneran kepakai di workflow, mana yang cuma gimmick.</p>
-      <div class="deliver"><b>Hasil</b>1 short AI-assisted + 1 paragraf verdict</div>
+    <div class="card req">
+      <h3><span class="num">5</span>Lower Third (min. 2)</h3>
+      <p>Buat minimal 2 lower-third grafis. Misal: nama orang + jabatan, nama menu + harga, atau label lokasi/section. Bukan teks polos — harus ada bar/box/icon background.</p>
+      <div class="spec">Animasi masuk-keluar (slide atau fade). Tampil 2–4 detik, lalu hilang. Posisi 1/4 bawah layar, jangan menabrak subtitle.</div>
     </div>
 
-    <div class="day"><div class="day-head"><span class="num">27</span><span class="badge">Phase 4</span></div>
-      <h3>Template — bikin yang reusable</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Bikin template reusable buat menu reveal LalaFun: intro, slot dish, outro. Simpan jadi file project. Besok dipakai berulang.</p>
-      <div class="deliver"><b>Hasil</b>1 template + 1 sample ekspor</div>
+    <div class="card req">
+      <h3><span class="num">6</span>Background Music + Pacing</h3>
+      <p>Pilih 1 musik latar yang cocok mood-nya. <b>Sinkronkan</b> minimal 3 cut dengan beat musik (cut on the beat).</p>
+      <div class="spec">Volume musik turun ke 20–30% saat ada voiceover/dialog. Naik lagi ke 60–70% saat tidak ada suara orang.</div>
     </div>
-
-    <div class="day milestone"><div class="day-head"><span class="num">28</span><span class="badge">Milestone 4</span></div>
-      <h3>Gabungin semua skill Phase 4</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Brief: Sidestudio explainer. Wajib pakai compositing, motion track ATAU mask, 1 AI tool, dan custom template.</p>
-      <div class="deliver"><b>Hasil</b>Short portfolio-grade ke-3</div>
-    </div>
-
-    <div class="day off"><div class="day-head"><span class="num">OFF</span><span class="badge">Libur</span></div>
-      <h3>Hari libur 4</h3>
-      <p>Istirahat penuh.</p>
-    </div>
-
   </div>
-</section>
 
-<!-- PHASE 5 -->
-<section class="phase p5">
-  <div class="phase-head"><span class="num">PHASE 5</span><h2>Brief Asli — Produksi sungguhan</h2><span class="range">Hari 29–35</span></div>
-  <p class="phase-why">Target: di Hari 35 kamu udah bikin 7 video sungguhan buat brand sungguhan, dengan kecepatan produksi sungguhan.</p>
-  <div class="days">
-
-    <div class="day"><div class="day-head"><span class="num">29</span><span class="badge">Phase 5</span></div>
-      <h3>LalaFun — menu reveal</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Pakai template dari Hari 27. 60 detik, polish penuh, captioned. Submit jam 17:00.</p>
-      <div class="deliver"><b>Hasil</b>1 short jadi</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">30</span><span class="badge">Phase 5</span></div>
-      <h3>LalaFun — kitchen BTS</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>60 detik behind-the-scenes, musik-driven, caption optional. <b>Tunjukin orangnya</b> — itu yang bikin BTS bagus.</p>
-      <div class="deliver"><b>Hasil</b>1 short jadi</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">31</span><span class="badge">Phase 5</span></div>
-      <h3>Kosolo — dish hero</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>30 detik food hero shot. Speed ramp + sound design wajib muncul.</p>
-      <div class="deliver"><b>Hasil</b>1 short jadi</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">32</span><span class="badge">Phase 5</span></div>
-      <h3>Floural — pre-launch teaser</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>30 detik teaser untuk brand bakery Floural. Pelan, soft, no hype edit. Sesuain mood brand — bukan LalaFun.</p>
-      <div class="deliver"><b>Hasil</b>1 short jadi</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">33</span><span class="badge">Phase 5</span></div>
-      <h3>Sidestudio — case clip</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>60 detik explainer: masalah → sistem → hasil. Pakai angle LalaFun POS sebagai contoh.</p>
-      <div class="deliver"><b>Hasil</b>1 short jadi</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">34</span><span class="badge">Phase 5</span></div>
-      <h3>Personal brand — gaya operator-builder</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>60 detik gaya operator-builder. <b>Baca dulu</b> file <code>AGENTS.md</code> di folder video-guidelines sebelum mulai — ada aturan brand-nya.</p>
-      <div class="deliver"><b>Hasil</b>1 short jadi</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">35</span><span class="badge">Phase 5</span></div>
-      <h3>Batch day — varian platform</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Ambil 2 video minggu ini. Re-cut tiap satu jadi 3 versi: TikTok, Reels, YouTube Shorts (durasi, caption, aspect beda-beda tipis).</p>
-      <div class="deliver"><b>Hasil</b>6 varian ekspor</div>
-    </div>
-
+  <h2>Timeline Hari Ini</h2>
+  <div class="timeline">
+    <div class="row"><div class="t">09:00</div><div class="d">Pilih topik + kumpulin semua footage yang mau dipakai. Catat ide singkat: hook apa, alur ceritanya gimana, ending-nya apa.</div></div>
+    <div class="row"><div class="t">10:00</div><div class="d">Rough cut: susun B-roll urut cerita, belum perlu rapi. Target durasi 50–60 detik.</div></div>
+    <div class="row"><div class="t">12:00</div><div class="d">Istirahat makan.</div></div>
+    <div class="row"><div class="t">13:00</div><div class="d">Pasang musik latar, sinkronkan cut ke beat. Refine timing tiap klip.</div></div>
+    <div class="row"><div class="t">15:00</div><div class="d">Generate auto subtitle, koreksi manual semua kata. Styling caption.</div></div>
+    <div class="row"><div class="t">16:30</div><div class="d">Tempel sound effect di transisi & momen kunci.</div></div>
+    <div class="row"><div class="t">17:30</div><div class="d">Bikin lower-third (animasi masuk-keluar). Pastikan tidak tabrakan dengan subtitle.</div></div>
+    <div class="row"><div class="t">18:30</div><div class="d">Review penuh: tonton 3x dari awal, perbaiki yang janggal. Cek audio balance, cek tipo subtitle.</div></div>
+    <div class="row"><div class="t">19:30</div><div class="d">Export MP4 1080p 9:16. Kirim ke saya via WhatsApp + upload project file ke folder Drive.</div></div>
   </div>
-</section>
 
-<!-- PHASE 6 -->
-<section class="phase p6">
-  <div class="phase-head"><span class="num">PHASE 6</span><h2>Portfolio & GitHub</h2><span class="range">Hari 36–39</span></div>
-  <p class="phase-why">Target: di Hari 39 kamu punya portfolio publik yang rapih, dan rencana produksi 4 minggu ke depan.</p>
-  <div class="days">
+  <h2>Cara Penilaian (Rubrik)</h2>
+  <table class="rubric">
+    <tr><th>Aspek</th><th>Yang dicari</th><th>Bobot</th></tr>
+    <tr><td>Hook</td><td>3 detik pertama bikin orang stop scroll</td><td class="score">20%</td></tr>
+    <tr><td>Subtitle</td><td>Akurat, rapi, readable di HP</td><td class="score">15%</td></tr>
+    <tr><td>Sound Design</td><td>SFX tepat, musik sinkron, audio balance</td><td class="score">20%</td></tr>
+    <tr><td>B-Roll</td><td>Variasi shot, pacing, ada motion</td><td class="score">20%</td></tr>
+    <tr><td>Lower Third</td><td>Desain bersih, animasi mulus, posisi pas</td><td class="score">15%</td></tr>
+    <tr><td>Polish</td><td>Tidak ada glitch, ending clean</td><td class="score">10%</td></tr>
+  </table>
 
-    <div class="day"><div class="day-head"><span class="num">36</span><span class="badge">Phase 6</span></div>
-      <h3>Curate — pilih 8 piece terbaik</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Pilih 8 piece terbaik dari semua phase. Re-ekspor dengan color & audio konsisten — biar nggak kelihatan "tiap video diedit orang beda". Trim frame yang lemah.</p>
-      <div class="deliver"><b>Hasil</b>8 ekspor final</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">37</span><span class="badge">Phase 6</span></div>
-      <h3>Portfolio scaffold</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Bikin struktur folder: <code>/lalafun</code>, <code>/kosolo</code>, <code>/floural</code>, <code>/sidestudio</code>, <code>/personal-brand</code>. Tulis README: intro singkat, daftar skill, kontak.</p>
-      <div class="deliver"><b>Hasil</b>Folder portfolio siap di lokal</div>
-    </div>
-
-    <div class="day"><div class="day-head"><span class="num">38</span><span class="badge">Phase 6</span></div>
-      <h3>Push ke GitHub</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Bikin repo publik. Push MP4 (atau link kalau ketebelan) + README + preview. Tambah deskripsi per project.</p>
-      <div class="deliver"><b>Hasil</b>Repo GitHub live</div>
-    </div>
-
-    <div class="day milestone"><div class="day-head"><span class="num">39</span><span class="badge">Milestone Final</span></div>
-      <h3>Present & defend portfolio kamu</h3>
-      <div class="label">Tugas hari ini</div>
-      <p>Walk-through portfolio. Tunjukin: alasan pilih tiap piece, piece terlemah (self-critique), piece terkuat. Sepakat cadence output 4 minggu pertama post-training.</p>
-      <div class="deliver"><b>Hasil</b>Rencana produksi disetujui</div>
-    </div>
-
+  <h2>Yang Saya Harapkan dari Hari Ini</h2>
+  <div class="card">
+    <ul>
+      <li><b>Bukan tutorial.</b> Saya tidak mau lihat "saya baru belajar fitur ini". Saya mau lihat hasil video yang utuh.</li>
+      <li><b>Stuck itu wajar, diam itu tidak.</b> Kalau ada fitur yang belum bisa, googling, tonton YouTube 5 menit, lanjut. Jangan tunggu disuapi.</li>
+      <li><b>Catat semua kendala</b> di akhir hari — fitur mana yang susah, mana yang mudah. Itu yang jadi bahan kita evaluasi besok.</li>
+      <li><b>Kirim hasilnya hari ini juga.</b> Kalau jam 21:00 belum kirim, anggap gagal — dan saya mau dengar alasannya langsung.</li>
+    </ul>
   </div>
-</section>
 
-<!-- END CONTRACT -->
-<section class="contract">
-  <h2>Kontrak Akhir — Hari 39 kamu harus bisa:</h2>
-  <p class="intro">Kalau di Hari 39 belum bisa salah satu dari ini, training belum lulus.</p>
-  <ul>
-    <li>Ngirim 1 short 60 detik dari footage mentah dalam ≤ 4 jam, sendirian.</li>
-    <li>Tau kapan <b>JANGAN</b> pakai efek (taste Phase 2 + Phase 4 wajib udah jadi).</li>
-    <li>Hook di 3 detik pertama otomatis — dan bisa kasih alasan kenapa.</li>
-    <li>Color, sound, caption konsisten antar piece — bukan "tiap video diedit orang beda".</li>
-    <li>Portfolio GitHub publik live, minimal 8 piece, dipisah per brand.</li>
-    <li>Bisa terima brief 1 kalimat, balik dengan draft pertama hari itu juga.</li>
-  </ul>
-</section>
-
-<p class="foot">Single file HTML. Buka di browser apa aja. Ctrl-P → Save as PDF kalau mau versi cetak.</p>
-
+  <div class="footer">Tugas — 23 Mei 2026 · Sidestudio · Stress Test CapCut</div>
 </div>
+
+<script>
+  // Auto-fit single-page PDF export (per feedback_invoice_pdf rule)
+  window.addEventListener('load', () => {
+    const h = document.documentElement.scrollHeight;
+    const w = document.documentElement.scrollWidth;
+    const style = document.createElement('style');
+    style.textContent = `@page { size: ${w}px ${h}px; margin: 0; }`;
+    document.head.appendChild(style);
+  });
+</script>
 </body>
 </html>

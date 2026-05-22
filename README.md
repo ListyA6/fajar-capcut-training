@@ -1,5 +1,7 @@
-# Kurikulum CapCut — 39 Hari (Fajar)
+# Tugas Fajar — CapCut (Sidestudio)
 
 Lihat: **https://listya6.github.io/fajar-capcut-training/**
 
-Single-file HTML kurikulum belajar editing short-form di CapCut. 39 hari kerja, 6 jam/hari, 1 deliverable tiap hari.
+Brief harian untuk Fajar. Pendekatan kurikulum 39 hari diganti dengan stress-test brief per hari — fokus pada gap nyata, bukan urutan linear.
+
+Halaman ini di-update tiap kali ada tugas baru.
